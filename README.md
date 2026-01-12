@@ -17,48 +17,16 @@ PORT     STATE SERVICE     VERSION
 21/tcp   open  ftp         ProFTPD 1.3.5
 
 22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   3072 e6:4a:21:9f:8a:c6:37:56:63:fa:4c:46:95:20:2d:34 (RSA)
-|   256 0c:54:42:e8:10:16:c7:5d:f0:bf:13:85:80:e4:c2:aa (ECDSA)
-|_  256 f8:4e:f0:89:a3:14:f0:fc:52:3a:0e:5d:a5:f6:34:dc (ED25519)
 
 80/tcp   open  http        Apache httpd 2.4.41 ((Ubuntu))
-|_http-server-header: Apache/2.4.41 (Ubuntu)
-|_http-title: Site doesn't have a title (text/html).
-| http-robots.txt: 1 disallowed entry 
-|_/admin.html
 
 111/tcp  open  rpcbind     2-4 (RPC #100000)
-| rpcinfo: 
-|   program version    port/proto  service
-|   100000  2,3,4        111/tcp   rpcbind
-|   100000  2,3,4        111/udp   rpcbind
-|   100000  3,4          111/tcp6  rpcbind
-|   100000  3,4          111/udp6  rpcbind
-|   100003  3           2049/udp   nfs
-|   100003  3           2049/udp6  nfs
-|   100003  3,4         2049/tcp   nfs
-|   100003  3,4         2049/tcp6  nfs
-|   100005  1,2,3      38713/tcp   mountd
-|   100005  1,2,3      42526/udp   mountd
-|   100005  1,2,3      47351/tcp6  mountd
-|   100005  1,2,3      57584/udp6  mountd
-|   100021  1,3,4      35275/tcp   nlockmgr
-|   100021  1,3,4      42363/tcp6  nlockmgr
-|   100021  1,3,4      43420/udp   nlockmgr
-|   100021  1,3,4      52811/udp6  nlockmgr
-|   100227  3           2049/tcp   nfs_acl
-|   100227  3           2049/tcp6  nfs_acl
-|   100227  3           2049/udp   nfs_acl
-|_  100227  3           2049/udp6  nfs_acl
 
 139/tcp  open  netbios-ssn Samba smbd 4
 
 445/tcp  open  netbios-ssn Samba smbd 4
 
 2049/tcp open  nfs         3-4 (RPC #100003)
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-
 
 okay so this looks like a classic ctf where the access to ftp will require a username and a password. the passwords could be possibly found in the nfs shares and it will be going from one service to another in search of finding hints until we get the initial foothold. so first we start with enumerating the webserver at port 80 to find any leads.
 visiting the page manually we find a .jpg image of starwar characters. we download the image in case of steganography related problems in upcoming enumeration. 
