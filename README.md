@@ -120,7 +120,7 @@ we find a log.txt file
 #now tranfer the log.txt file to your system
 get log.txt
 ```
-
+# Phase 2 - Initial Foothold:
 now after viewing the contents of the file, we find out the id_rsa that we found before is supposed to be the private key for the user kenobi. since we already have the id_rsa we can directly access the ssh shell with ease.
 
 ```bash
@@ -153,6 +153,7 @@ the format of the command being processed would be:
 -> PATH enivronment variable searches each directory from left to right for the curl command.
 -> it executes the first match it finds
 
+# Phase 3 - Privilege Escalation:
 so having learnt this we can hijack the path to run our own curl file which will have the command /bin/bash as its contents and we will manipulate the path to the path where our malicious curl file is located at.
 
 ```bash
