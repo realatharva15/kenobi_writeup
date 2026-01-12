@@ -75,6 +75,7 @@ first lets find out what shares are present on the smb service
 ```bash
 smbclient -L <target_ip> -N
 ```
+we find a share named anonymous
 ```
 Sharename       Type      Comment
       
