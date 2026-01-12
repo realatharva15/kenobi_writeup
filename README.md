@@ -75,7 +75,7 @@ first lets find out what shares are present on the smb service
 ```bash
 smbclient -L <target_ip> -N
 ```
-
+```
 Sharename       Type      Comment
       
 print$          Disk      Printer Drivers
@@ -83,7 +83,7 @@ print$          Disk      Printer Drivers
 anonymous       Disk      
         
 IPC$            IPC       IPC Service (kenobi server (Samba, Ubuntu))
-
+```
 the anonymous share looks interesting, lets find out what we can get from this share. 
 
 ```bash
