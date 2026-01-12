@@ -69,12 +69,17 @@ we run gobuster on the website
 gobuster dir -u http://<target_ip> -w /usr/share/wordlists/dirb/common.txt
 ```
 we get the results as 
-===============================================================
+
 /.htaccess            (Status: 403) [Size: 277]
+
 /.hta                 (Status: 403) [Size: 277]
+
 /.htpasswd            (Status: 403) [Size: 277]
+
 /index.html           (Status: 200) [Size: 200]
+
 /robots.txt           (Status: 200) [Size: 36]
+
 /server-status        (Status: 403) [Size: 277]
 
 we immediately visit the /robots.txt and find out that it disallows /admin.html
